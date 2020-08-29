@@ -20,12 +20,11 @@ periodo = [100]
 variancia_beta = np.arange(0.01, 0.12, 0.1)
 dagostino_person = 0.05
 
+send_to_telegram = False
 
 try:
     # load Parameters
     SHEET_PATH = os.getenv('SHEET_PATH')
-
-    send_to_telegram = True
 
     if send_to_telegram:
         telegram.send('{} FASE: Inicio do Backtest'.format(telegram.emoji.play))
@@ -52,7 +51,7 @@ try:
 
     # save results
     df_results = pd.DataFrame(results)
-    df_results.to_pickle("./results.pkl")
+    df_results.to_pickle("./outputs/results.pkl")
 
     if send_to_telegram:
         telegram.send('{} FASE: Fim do Backtest!'.format(telegram.emoji.check))
