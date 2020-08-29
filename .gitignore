@@ -1,0 +1,10 @@
+# Default ignored files
+*.env
+*.idea/
+*.ipynb_checkpoints/
+*sandbox
+*.pkl
+*__pycache__*
+
+input/*
+!input/*sample*.xlsm
