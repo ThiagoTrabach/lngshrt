@@ -5,6 +5,7 @@
 *sandbox
 *.pkl
 *__pycache__*
+*venv
 
 input/*
 !input/*sample*.xlsm
