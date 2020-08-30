@@ -23,3 +23,4 @@ class emoji:
     play = b'\xE2\x96\xB6'.decode("utf-8")
     check = b'\xE2\x9C\x85'.decode("utf-8")
     hourglass = b'\xE2\x8F\xB3'.decode("utf-8")
+    cross = b'\xE2\x9D\x8C'.decode("utf-8")
