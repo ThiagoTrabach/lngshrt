@@ -7,24 +7,22 @@ import os
 import sys
 from dotenv import load_dotenv
 
-
 load_dotenv()
-
-portfolio_max_size = np.arange(2,4,1)
-dickey_fuller = np.arange(3,4,1)
-fisher = np.arange(-0.5,-0.4,0.1)
-meia_vida = [10,25]
-media_n = np.arange(0.5, 0.6, 0.1)
-desvio_padrao = np.arange(2, 2.1, 0.1)
-periodo = [100]
-variancia_beta = np.arange(0.01, 0.12, 0.1)
-dagostino_person = 0.05
 
 send_to_telegram = False
 
 try:
     # load Parameters
     SHEET_PATH = os.getenv('SHEET_PATH')
+    PORTFOLIO_MAX_SIZE = eval(os.getenv('PORTFOLIO_MAX_SIZE'))
+    DICKEY_FULLER = eval(os.getenv('DICKEY_FULLER'))
+    FISHER = eval(os.getenv('FISHER'))
+    MEIA_VIDA = eval(os.getenv('MEIA_VIDA'))
+    MEDIA_N = eval(os.getenv('MEDIA_N'))
+    DESVIO_PADRAO = eval(os.getenv('DESVIO_PADRAO'))
+    PERIODO = eval(os.getenv('PERIODO'))
+    VARIANCIA_BETA = eval(os.getenv('VARIANCIA_BETA'))
+    DAGOSTINO_PERSON = eval(os.getenv('DAGOSTINO_PERSON'))
 
     if send_to_telegram:
         telegram.send('{} FASE: Inicio do Backtest'.format(telegram.emoji.play))
@@ -34,7 +32,7 @@ try:
     df = dl.sheet_importer(SHEET_PATH)
 
     # generate grid
-    grid = cv.generate_grid(portfolio_max_size, dickey_fuller, fisher, meia_vida,  media_n,  desvio_padrao, periodo, variancia_beta)
+    grid = cv.generate_grid(PORTFOLIO_MAX_SIZE, DICKEY_FULLER, FISHER, MEIA_VIDA,  MEDIA_N,  DESVIO_PADRAO, PERIODO, VARIANCIA_BETA)
 
     # Get grid search run info
     if send_to_telegram:
@@ -57,4 +55,5 @@ try:
         telegram.send('{} FASE: Fim do Backtest!'.format(telegram.emoji.check))
 
 except:
+    telegram.send("{} ERROR: {}".format(telegram.emoji.double_exclamation, sys.exc_info()))
     telegram.send("{} ERROR: {}".format(telegram.emoji.double_exclamation,sys.exc_info()))
