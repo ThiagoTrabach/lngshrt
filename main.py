@@ -54,5 +54,6 @@ try:
         telegram.send('{} END: Succcess'.format(telegram.emoji.check))
 
 except:
-    telegram.send('{} END: Failure'.format(telegram.emoji.cross))
-    telegram.send("{} ERROR: {}".format(telegram.emoji.double_exclamation,sys.exc_info()))
+    if send_to_telegram:
+        telegram.send('{} END: Failure'.format(telegram.emoji.cross))
+        telegram.send("{} ERROR: {}".format(telegram.emoji.double_exclamation,sys.exc_info()))
