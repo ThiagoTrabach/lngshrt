@@ -66,7 +66,6 @@ def grid_search_info(dataframe, grid, parallel = False, send_to_telegram = False
         telegram.send('Tempo previsto da busca: {} dias'.format(tempo_dias))
         telegram.send('-------------------------')
 
-    return
 
 
 def collect_result(result):

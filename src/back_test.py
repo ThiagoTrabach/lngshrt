@@ -32,4 +32,4 @@ def back_test_async(i, parametros, df, data_inicio, data_final):
     output.update(results)
 
     return output
-    #return [i, param, metrics.get_metrics(operacoes, parametros[0] * 25000)]
+
