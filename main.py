@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 send_to_telegram = True
-origin = 'sheet'
+data_origin = 'sheet'
 
 try:
     if send_to_telegram:
@@ -34,7 +34,7 @@ try:
     elif data_origin = 'database'
         # df = ?
     else:
-
+        #TODO: adicionar msg de erro
 
     # generate grid
     grid = cv.generate_grid(PORTFOLIO_MAX_SIZE, DICKEY_FULLER, FISHER, MEIA_VIDA,  MEDIA_N,  DESVIO_PADRAO, PERIODO, VARIANCIA_BETA)
