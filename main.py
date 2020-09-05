@@ -1,7 +1,7 @@
 import src.data_loader as dl
 import src.cross_validation as cv
 import src.telegram as telegram
-import numpy as np
+import config.grid_search as gs
 import pandas as pd
 import os
 import sys
@@ -18,23 +18,21 @@ try:
 
     # load Parameters
     SHEET_PATH = os.getenv('SHEET_PATH')
-    PORTFOLIO_MAX_SIZE = eval(os.getenv('PORTFOLIO_MAX_SIZE'))
-    DICKEY_FULLER = eval(os.getenv('DICKEY_FULLER'))
-    FISHER = eval(os.getenv('FISHER'))
-    MEIA_VIDA = eval(os.getenv('MEIA_VIDA'))
-    MEDIA_N = eval(os.getenv('MEDIA_N'))
-    DESVIO_PADRAO = eval(os.getenv('DESVIO_PADRAO'))
-    PERIODO = eval(os.getenv('PERIODO'))
-    VARIANCIA_BETA = eval(os.getenv('VARIANCIA_BETA'))
-    DAGOSTINO_PERSON = eval(os.getenv('DAGOSTINO_PERSON'))
+    PORTFOLIO_MAX_SIZE = gs.parameters.PORTFOLIO_MAX_SIZE
+    DICKEY_FULLER = gs.parameters.DICKEY_FULLER
+    FISHER = gs.parameters.FISHER
+    MEIA_VIDA = gs.parameters.MEIA_VIDA
+    MEDIA_N = gs.parameters.MEDIA_N
+    DESVIO_PADRAO = gs.parameters.DESVIO_PADRAO
+    PERIODO = gs.parameters.PERIODO
+    VARIANCIA_BETA = gs.parameters.VARIANCIA_BETA
+    DAGOSTINO_PERSON = gs.parameters.DAGOSTINO_PERSON
 
     #load data
     if data_origin == 'sheet':
         df = dl.sheet_importer(SHEET_PATH)
-    elif data_origin = 'database'
-        # df = ?
-    else:
-        #TODO: adicionar msg de erro
+    elif data_origin == 'database':
+        df = 'foo'
 
     # generate grid
     grid = cv.generate_grid(PORTFOLIO_MAX_SIZE, DICKEY_FULLER, FISHER, MEIA_VIDA,  MEDIA_N,  DESVIO_PADRAO, PERIODO, VARIANCIA_BETA)
