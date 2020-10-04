@@ -13,9 +13,9 @@ def filter_dataframe(dataframe, parameters):
     c5 = (df['desvio-padrao'] <= - param['desvio-padrao']) | (df['desvio-padrao'] >= param['desvio-padrao'])
     c6 = df['periodo'] >= param['periodo']
     c7 = df['variancia_beta'] <= param['variancia_beta']
-    # c8 = df['dagostino-person'] >= param['dagostino-person']
+    c8 = df['prop_financeiro'].between(1/param['prop_financeiro'], param['prop_financeiro'])
 
-    df_filtered = df[c1 & c2 & c3 & c4 & c5 & c6 & c7 & c7]
+    df_filtered = df[c1 & c2 & c3 & c4 & c5 & c6 & c7 & c7 & c8]
 
     return df_filtered
 

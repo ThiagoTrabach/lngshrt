@@ -8,9 +8,9 @@ import time
 
 results = []
 
-def generate_grid(portfolio_max_size, dickey_fuller, fisher, meia_vida,  media_n,  desvio_padrao, periodo, variancia_beta):
+def generate_grid(portfolio_max_size, dickey_fuller, fisher, meia_vida,  media_n,  desvio_padrao, periodo, variancia_beta,prop_financeiro):
 
-    grid = list(itertools.product(portfolio_max_size, dickey_fuller, fisher, meia_vida, media_n, desvio_padrao, periodo, variancia_beta))
+    grid = list(itertools.product(portfolio_max_size, dickey_fuller, fisher, meia_vida, media_n, desvio_padrao, periodo, variancia_beta, prop_financeiro))
 
     return grid
 

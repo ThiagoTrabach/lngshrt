@@ -27,6 +27,7 @@ try:
     PERIODO = gs.parameters.PERIODO
     VARIANCIA_BETA = gs.parameters.VARIANCIA_BETA
     DAGOSTINO_PERSON = gs.parameters.DAGOSTINO_PERSON
+    PROP_FINANCEIRO = gs.parameters.PROP_FINANCEIRO
 
     #load data
     if data_origin == 'sheet':
@@ -35,7 +36,7 @@ try:
         df = 'foo'
 
     # generate grid
-    grid = cv.generate_grid(PORTFOLIO_MAX_SIZE, DICKEY_FULLER, FISHER, MEIA_VIDA,  MEDIA_N,  DESVIO_PADRAO, PERIODO, VARIANCIA_BETA)
+    grid = cv.generate_grid(PORTFOLIO_MAX_SIZE, DICKEY_FULLER, FISHER, MEIA_VIDA,  MEDIA_N,  DESVIO_PADRAO, PERIODO, VARIANCIA_BETA, PROP_FINANCEIRO)
 
     # Get grid search run info
     if send_to_telegram:

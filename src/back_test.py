@@ -12,6 +12,7 @@ def back_test(parametros, df, data_inicio, data_final):
              'desvio-padrao': parametros[5],
              'periodo': parametros[6],
              'variancia_beta': parametros[7],
+             'prop_financeiro': parametros[8],
              'dagostino-person': 0.05}
 
     df_filtered = trade.filter_dataframe(df, param)
