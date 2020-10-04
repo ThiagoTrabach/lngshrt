@@ -58,8 +58,7 @@ def run_trades(dataframe, data_inicial, data_final, portfolio_max_size):
         ativos_entrantes = ativos_entrantes[ativos_entrantes.pares.isin(list(ativos_entrantes_pares - portfolio_pares))]
 
         # ordena os ativos elegíveis
-        # TODO: segundo nível do sort
-        ativos_entrantes = ativos_entrantes.sort_values(by=['dickey-fuller'], ascending=False)
+        ativos_entrantes = ativos_entrantes.sort_values(by=['dickey-fuller', 'fisher'], ascending=[False, False])
 
         # filtra de acordo com o tamanho maximo da carteira
         portfolio_slotes_disponiveis = portfolio_max_size - portfolio.shape[0]
